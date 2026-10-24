@@ -112,6 +112,34 @@ By logging into the Hitron D60's OpenWrt `ubus` JSON-RPC API (`http://172.30.55.
 
 ---
 
+## 🌐 Universal Compatibility — How Anyone Can Use This on Windows
+
+You do **not** need identical modems, a special router, or a paid bonding subscription (like Speedify). `multi_wan.py` is **100% universal** and works automatically on any standard Windows 10/11 computer with **any mix of internet connections**:
+
+* 📱 **Phone USB Tethering:** iPhone (Lightning/USB-C), Samsung Galaxy, Google Pixel, OnePlus (Android USB RNDIS)
+* 📶 **5G / 4G LTE Hotspots & Modems:** Inseego MiFi, Netgear Nighthawk, Franklin, Suncomm, Chester Cheetah, Cradlepoint, Peplink
+* 🏠 **Fixed Broadband & Starlink:** Home Wi-Fi, Ethernet to your fiber/cable router, Starlink Dishy
+* 🔌 **USB Ethernet / Dongles:** Any USB-to-LAN adapter or docking station
+
+Because `multi_wan.py` uses Windows hardware interface indices (`ifIndex`) via `IP_UNICAST_IF` (socket option 31), **it completely bypasses Windows routing conflicts**, even when multiple modems share identical local IP addresses (like `192.168.1.1` or `192.168.0.1`).
+
+### 60-Second Setup for Anyone
+
+```powershell
+# 1. Clone this repository (or download multi_wan.py)
+git clone https://github.com/AIjennings/ariawave-multiwan-studio.git
+cd ariawave-multiwan-studio
+
+# 2. Plug in your connections (e.g. Wi-Fi + Phone USB Tether + Hotspot)
+# Discover your adapters and test their public IPs and latencies:
+python multi_wan.py --status
+
+# 3. Download any large game, ISO, or archive striped across all your links:
+python multi_wan.py "https://example.com/large-file.zip" "C:\Downloads\file.zip"
+```
+
+---
+
 ## 🚀 Quick Start
 
 ```powershell
